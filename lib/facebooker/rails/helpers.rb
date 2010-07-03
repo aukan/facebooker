@@ -670,6 +670,11 @@ module Facebooker
       def fb_share_button(url)
         content_tag "fb:share-button",nil,:class=>"url",:href=>url
       end
+      # XFBML version
+      def xfb_share_button(url, options = {})
+        options.reverse_merge! :href => url, :class => "url"
+        content_tag "fb:share-button",nil,options
+      end
       
       # Renders the FBML on a Facebook server inside an iframe.
       #
